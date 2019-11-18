@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const[count, setCount] = useState(0);
+  
+    return (
+        <div>
+            <form>
+              <label>Write the number in which we'll start the counter:</label>
+                <input type="number" name="count" value={count} 
+                onChange={(e) => setCount(e.target.value)}/>
+            </form>
+            
+            <p>The counter is at : {count} </p>
+            <button onClick={() => setCount(count + 1)}>
+                +1
+            </button>
+            <button onClick={() => setCount(count - 1)}>
+                -1
+            </button>
+        </div>
+    );
 }
 
 export default App;
